@@ -34,13 +34,13 @@ In this I have written a server-side code, and a client side code, such that we 
 In the attached codes [server2.c](server2.c) and [client2.c](client2.c), I have used file descriptors, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
 The server must be compiled and executed before running any clients. The compilation and execution can be done by:
 ```
-gcc serverFileName.c -o server
+gcc server2.c -o server
 ./server
 ```
 
-This doesn’t require any command line argument. By default, this sets up the port number 11000 as the server port. Care must be taken to change the IP address of the machine on which the code is being executed manually in both the server and client-side code. After the server is set, the user can create any number of clients. The client execution requires the port number that shall be used, as a command line argument. If the port number used is unavailable, the client binds to a random port number.
+This doesn’t require any command line argument. By default, this sets up the port number 11000 as the server port. **Care must be taken to change the IP address of the machine on which the code is being executed manually in both the server and client-side code.** After the server is set, the user can create any number of clients. The client execution requires the port number that shall be used, as a command line argument. If the port number used is unavailable, the client binds to a random port number.
 ```
-gcc clientFileName.c -o client
+gcc client2.c -o client
 ./client 12010                                            //Client with port number 12010
 ./client 12020                                            //Client with port number 12020
 ./client 12030                                            //Client with port number 12030
@@ -100,3 +100,51 @@ i.	Client 10002 requests client 10001 to send filename tempfile1.txt
 j.	When client 10001 again requests client 10002 to send a list of files they have, we see a file named tempfile1.txt has been added to the list.
 
 ![result](./SS/Code2/11.png)
+
+## Code 3
+
+In this I have written a server-side code, and a client side code, such that we can create one server, and multiple clients, and all the clients can subscribe to a list of topics that the server has, and receive updates on the topic.
+
+In the attached codes [server3.c](server3.c) and [client3.c](client3.c), I have used file descriptors, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
+The server must be compiled and executed before running any clients. The compilation and execution can be done by:
+```
+gcc server3.c -o server
+./server
+```
+
+This doesn’t require any command line argument. By default, this sets up the port number 10000 as the server port. **Care must be taken to change the IP address of the machine on which the code is being executed manually in both the server and client-side code.** After the server is set, the user can create any number of clients. The client execution requires the port number that shall be used, as a command line argument. If the port number used is unavailable, the client binds to a random port number.
+```
+gcc clientFileName.c -o client
+./client 12010                                            //Client with port number 12010
+./client 12020                                            //Client with port number 12020
+./client 12030                                            //Client with port number 12030
+```
+
+After setting up the clients, users can perform 5 operations on each client via the command line input: 
+- list: The client can request the list of topics from the server
+- subscribe: The client can subscribe to a particular topic that the server has.
+- news: A client can pass news update to the server.
+- clear: User can clear the console of a particular client.
+- close: User can close a connection between the client and the server.
+
+Here I have attached screenshots of some test cases:
+
+a.	Client requests server to send a list of topics available. Currently 4 topics are available.
+
+![result](./SS/Code3/1.png)
+
+b. User adds a new topic in the server list – Server informs all clients to update their topic list.
+
+![result](./SS/Code3/2.png)
+
+c.	Client again requests the new topic list.
+
+![result](./SS/Code3/3.png)
+
+d.	Client subscribes to a topic.
+
+![result](./SS/Code3/4.png)
+
+e.	New client sends news for a topic – The news is broadcasted to subscribed clients.
+
+![result](./SS/Code3/5.png)
