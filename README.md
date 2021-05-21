@@ -89,7 +89,8 @@ The files for each port must be stored in a folder with the same name as the por
 
 ![result](./SS/Code2/9.png)
 
-ERROR HANDLING: If during file transfer, any errors occur, appropriate messages are displayed at the client and the server side. Since it’s difficult to manually trigger a read-write error, no screenshots have been attached, however verification for the same can be done by reading the code.
+### ERROR HANDLING
+If during file transfer, any errors occur, appropriate messages are displayed at the client and the server side. Since it’s difficult to manually trigger a read-write error, no screenshots have been attached, however verification for the same can be done by reading the code.
 
 Throughout the command line printing, I have added [+] to denote a successful operation, [-] to denote an error, [..] to denote a client or the server waiting for some input, or some operation to complete, and [:] to print other message, which will make it better to look and easier to spot errors.
 
