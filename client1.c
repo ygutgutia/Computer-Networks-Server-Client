@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
 		
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_addr.s_addr = INADDR_ANY;
-	server_addr.sin_addr.s_addr = inet_addr("10.0.2.15"); // enter system's machine IP
+	server_addr.sin_addr.s_addr = inet_addr("sysIP"); // enter system's machine IP
 	server_addr.sin_port = htons(SERV_PORT);
 
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_addr.s_addr = INADDR_ANY;
-	client_addr.sin_addr.s_addr = inet_addr("10.0.2.15"); // enter system's machine IP
+	client_addr.sin_addr.s_addr = inet_addr("sysIP"); // enter system's machine IP
 	client_addr.sin_port = htons(clientPort); // port number is assigned after input from user
 	
 	if (bind(clientfd, (struct sockaddr*) &client_addr, sizeof(struct sockaddr_in)) == 0)
