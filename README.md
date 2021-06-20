@@ -1,7 +1,7 @@
 ## Code 1
 In this I have written a server side code, and a client side code, such that we can create one server, and multiple clients, and all the clients can communicate with each other via the server.
 
-In the attached codes [server1.c](./Code 1/server1.c) and [client1.c](./Code 1/client1.c), I have used **file descriptors**, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
+In the attached codes [server1.c](Code1/server1.c) and [client1.c](Code1/client1.c), I have used **file descriptors**, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
 The server must be compiled and executed before running any clients. The compilation and execution can be done by:
 ```
 gcc server1.c -o server
@@ -31,7 +31,7 @@ The server shall intercept this message and send it to client with port number 1
 
 In this I have written a server-side code, and a client side code, such that we can create one server, and multiple clients, and all the clients can communicate with each other via the server, and **also transfer files**.
 
-In the attached codes [server2.c](./Code 2/server2.c) and [client2.c](./Code 2/client2.c), I have used file descriptors, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
+In the attached codes [server2.c](Code2/server2.c) and [client2.c](Code2/client2.c), I have used file descriptors, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
 The server must be compiled and executed before running any clients. The compilation and execution can be done by:
 ```
 gcc server2.c -o server
@@ -106,7 +106,7 @@ j.	When client 10001 again requests client 10002 to send a list of files they ha
 
 In this I have written a server-side code, and a client side code, such that we can create one server, and multiple clients, and all the clients can subscribe to a list of topics that the server has, and receive updates on the topic.
 
-In the attached codes [server3.c](./Code 3/server3.c) and [client3.c](./Code 3/client3.c), I have used file descriptors, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
+In the attached codes [server3.c](Code3/server3.c) and [client3.c](Code3/client3.c), I have used file descriptors, and select() to listen to various calls made on a port. The select() tells the server whether a disturbance is caused by a new client trying to connect, or whether it is caused by a message sent by an already connected client, or whether some client has left the disconnected the server.
 The server must be compiled and executed before running any clients. The compilation and execution can be done by:
 ```
 gcc server3.c -o server
